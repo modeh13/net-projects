@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPortable.Layouts.StackLayoutPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Use StackLayout to present collections of views over one dimension -->
+            <!-- By Default, 6px margin between Views -->
+            <!-- LayoutOptions 
+            
+            LayoutOptions.Start
+            LayoutOptions.Center
+            LayoutOptions.End
+            LayoutOptions.Fill
+            LayoutOptions.StartAndExpand
+            LayoutOptions.CenterAndExpand
+            LayoutOptions.EndAndExpand
+            LayoutOptions.FillAndExpand
+            
+            Alignment            
+            Start, Center, End – position the element inside its parent view
+            Star    -> Left, Up
+            End     -> Right, Dows
+            Center  -> V, H            
+            
+            Fill    -> expands to all the available space inside the parent view, Full size from the parent View, Width and Height
+            
+            Sizing
+            AndExpand – tells the View to expand to the full width or height of its parent View, 
+                        even if the children inside the View don’t take up all the available space.
+            -->            
+            
+            <Label Text="StackLayout" BackgroundColor="AliceBlue" FontSize="Medium" HorizontalOptions="Start" />
+            <Label Text="Por defecto se tiene un margen de 6px entre cada control" BackgroundColor="Aquamarine" HorizontalOptions="StartAndExpand" />
+
+            <Label Text="Entry" BackgroundColor="AliceBlue" HorizontalOptions="Center" />
+            <Entry Text="" Placeholder="Entry" TextColor="AliceBlue" HorizontalOptions="CenterAndExpand" />
+            
+            <Label Text="Button" BackgroundColor="AliceBlue" HorizontalOptions="End" />
+            <Button Text="Click Me !" HorizontalOptions="EndAndExpand" HeightRequest="50" BackgroundColor="Brown" />
+
+            <Label Text="BoxView" />
+            <BoxView Color="Red" VerticalOptions="End" />
+
+            <Label Text="SearchBar" HorizontalOptions="Fill" BackgroundColor="Aquamarine" />
+            <SearchBar HorizontalOptions="FillAndExpand" HeightRequest="50" />
+
+            <ContentView BackgroundColor="LightCyan" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label Text="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            </ContentView>
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="Brown">
+                <Button Text="Button1" />
+                <Button Text="Button2" />
+            </StackLayout>           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

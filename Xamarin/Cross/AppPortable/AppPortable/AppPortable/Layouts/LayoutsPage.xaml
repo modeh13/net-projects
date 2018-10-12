@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPortable.Layouts.LayoutsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Types Layouts" />
+            <Button x:Name="btnStackLayout" Text="StackLayout" />
+            <Button x:Name="btnAbsoluteLayout" Text="AbsoluteLayout" />
+            <Button x:Name="btnRelativeLayout" Text="RelativeLayout" />
+            <Button x:Name="btnGrid" Text="Grid" />
+            <Button x:Name="btnScrollView" Text="ScrollView" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

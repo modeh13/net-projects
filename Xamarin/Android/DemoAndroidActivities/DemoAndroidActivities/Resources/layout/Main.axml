@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!-- México -->
+    <TextView
+        android:text="Capital Contable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblTitle"
+        android:height="50dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center" />
+    <TextView
+        android:text="Ingresos Mexicanos:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblIngresosMex"
+        android:paddingLeft="30dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIngresosMex"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp" />
+    <TextView
+        android:text="Egresos Mexicanos"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblEgresosMex"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEgresosMex"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"/>
+<!-- Colombia -->
+    <TextView
+        android:text="Ingresos Colombianos:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblIngresosCol"
+        android:paddingLeft="30dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIngresosCol"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp" />
+    <TextView
+        android:text="Egresos Colombianos"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblEgresosCol"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEgresosCol"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"/>
+    <Button
+        android:text="CALCULAR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCalcular" />
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Capital Contable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblTitle"
+        android:height="50dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center" />
+    <TextView
+        android:text="Cápital Mexicano:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblCapitalMex"
+        android:paddingLeft="30dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCapitalMex"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp" />
+    <TextView
+        android:text="Cápital Colombiano"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblCapitalCol"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCapitalCol"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp" />
+    <Button
+        android:text="SALIR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSalir" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayoutImg"
+        android:minHeight="100dp">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/ivwMexico"
+            android:layout_weight="1" />
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/ivwColombia"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

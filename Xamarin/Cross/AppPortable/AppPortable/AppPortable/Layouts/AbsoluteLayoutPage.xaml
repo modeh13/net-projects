@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPortable.Layouts.AbsoluteLayoutPage">   
+    <ContentPage.Content>
+        <!-- Use AbsoluteLayout to create pixel perfect UIs. 
+         Define de ANCHOR Start, Center, End
+        
+        Position and Size are relative to de Parent Layout.
+        
+        Proportional Values .. Values between 0 To 1
+        Absolute Values      
+        
+        LayoutBounds : x, y, width, height
+        LayoutFlags : x, y, width, height
+        - None : Interprets all values as absolute. "Default".
+        - All : Interprets all values as proportional.
+        - WidthProportional: Interprets width value as proportional and all other values as absolute.
+        - HeightProportional: Interprets height value as proportional and all other values as absolute.
+        - XProportional: Interprets X value as proportional and all other values as absolute.
+        - YProportional: Interprets Y value as proportional and all other values as absolute.
+        - PositionProportional: Interprets X and Y value as proportional and all other values as absolute.
+        - SizeProportional: Interprets Width and Height value as proportional and all other values as absolute.
+        -->
+        <AbsoluteLayout>
+            <AbsoluteLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 0.5" AbsoluteLayout.LayoutFlags="All">
+                <Label x:Name="lblMessage" Text=""></Label>
+                <BoxView Color="Blue"
+                     AbsoluteLayout.LayoutBounds="0, 0, 0.5, 0.5"
+                     AbsoluteLayout.LayoutFlags="All">
+                </BoxView>
+
+                <BoxView Color="Red"
+                     AbsoluteLayout.LayoutBounds="1, 0, 0.5, 0.5"
+                     AbsoluteLayout.LayoutFlags="All">
+                </BoxView>
+
+                <BoxView Color="Yellow"
+                     AbsoluteLayout.LayoutBounds="0.5, 0, 100, 100"
+                     AbsoluteLayout.LayoutFlags="PositionProportional">
+                </BoxView>
+            </AbsoluteLayout>
+            <AbsoluteLayout AbsoluteLayout.LayoutBounds="0, 1, 1, 0.5" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Beige">
+                <Button Text="Center" AbsoluteLayout.LayoutBounds="0.5, 0.5, 100, 50" AbsoluteLayout.LayoutFlags="PositionProportional" />
+            </AbsoluteLayout>
+        </AbsoluteLayout>        
+    </ContentPage.Content>
+</ContentPage>

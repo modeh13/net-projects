@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppPortable"
+             x:Class="AppPortable.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform 
+            x:TypeArguments="Thinckess"
+            Android="0, 0, 0, 0"
+            iOS="0, 20, 0, 0"
+            WinPhone="0, 0, 0, 0"
+            />
+    </ContentPage.Padding>    
+    <ContentPage.Content>
+        <StackLayout Padding="40">
+            <Label Text="Documento" />
+            <Label Text="{Binding IdentificationId}" />
+            <Label Text="Nombre del Empleado" />
+            <Label Text="{Binding FirstName}" />
+            <Label Text="Apellido del Empleado" />
+            <Label Text="{Binding LastName}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

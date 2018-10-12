@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPortable.Layouts.ScrollViewPage">
+    <ContentPage.Content>
+        <!--
+        Has method ScrollToAsync().
+        -->
+        <ScrollView x:Name="svwContent">
+            <StackLayout BackgroundColor="Aqua">
+                <Label Text="ScrollView" FontSize="Medium"></Label>
+                <Label Text="Listado de Nombre"></Label>
+                <Button x:Name="btnScroll" Text="Ir a la Caja de Texto"></Button>
+                
+                <ListView x:Name="lvwDatos" BackgroundColor="Beige">
+                </ListView>
+                <AbsoluteLayout BackgroundColor="Gray" HorizontalOptions="FillAndExpand">
+                    <Entry x:Name="txtNombre" Text="" Placeholder="Nombre" AbsoluteLayout.LayoutFlags="XProportional, YProportional, WidthProportional"  AbsoluteLayout.LayoutBounds="0, 0, 1, 50" />
+                    <AbsoluteLayout AbsoluteLayout.LayoutFlags="XProportional, WidthProportional" AbsoluteLayout.LayoutBounds="0, 50, 1, 200">
+                        <ListView x:Name="lvwApellidos" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                        </ListView>
+                    </AbsoluteLayout>
+                </AbsoluteLayout>
+            </StackLayout>            
+        </ScrollView>        
+    </ContentPage.Content>
+</ContentPage>

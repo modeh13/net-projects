@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPortable.Layouts.RelativeLayoutPage">
+    <ContentPage.Content>
+        <!--
+        Use RelativeLayout to create UIs that scale to fit (Ajuste) any screen size.
+        
+        Does support positioning elements outside of its own bounds
+        RL can be used to position views on screen relative to the overall layout or two other views
+        
+        Constraint Expression:
+        XConstraint
+        YConstraint
+        WidthConstraint
+        HeightConstraint
+        
+        Type – whether the constraint is relative to the parent or to another view.
+        Property – which property to use as the basis for the constraint.
+        Factor – the factor to apply to the property value.
+        Constant – the value to use as an offset of the value.
+        ElementName – the name of the view that the constraint is relative to.
+        -->
+        <RelativeLayout>
+            <BoxView Color="Red" x:Name="redBox"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,
+                                                                       Factor=0.15,Constant=0}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,
+                                                                           Factor=1, Constant=0}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,
+                                                                           Factor=.8,Constant=0}" />
+            <BoxView Color="Blue"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=redBox, 
+                                                                       Property=Y, Factor=1, Constant=20}"
+        
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=redBox,
+                                                                       Property=X, Factor=1,Constant=20}"
+                    
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=.5,Constant=0}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.5,Constant=0}" />
+
+            <Button BorderRadius="35" HeightRequest="70" WidthRequest="70" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                                          Property=Width, Factor=0.5, Constant=-35}" />
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

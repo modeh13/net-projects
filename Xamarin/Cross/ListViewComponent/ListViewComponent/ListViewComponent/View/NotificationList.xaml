@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:ListViewComponent.Util.Converters"
+             xmlns:control="clr-namespace:ListViewComponent.Control;assembly:ListViewComponent"
+             xmlns:xam="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"             
+             xmlns:models="clr-namespace:ListViewComponent.Model"
+             x:Class="ListViewComponent.View.NotificationList">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:NotificationDateConverter x:Key="cnvNotificationDateConverter"></converter:NotificationDateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All"  AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <control:UIListView x:Name="lvwNotifications" HasUnevenRows="true" ItemsSource="{Binding NotificationList}" ItemTapped="OnItemTapped" 
+                                    ItemLongPress="Handle_LongPressEvent" x:TypeArguments="models:Notification">                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!--<ViewCell.ContextActions>
+                                    <MenuItem Text="More" CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding .}" />
+                                </ViewCell.ContextActions>-->
+                                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10, 10, 10, 10" RowSpacing="0">
+                                    <Grid.Triggers>
+                                        <DataTrigger TargetType="Grid" Binding="{Binding IsSelected}" Value="True">
+                                            <Setter Property="BackgroundColor" Value="#A9D0F5" />
+                                        </DataTrigger>
+                                    </Grid.Triggers>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="30" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- User Image -->
+                                    <xam:CircleImage Grid.Column="0" Grid.RowSpan="3" Source="{Binding Item.UserImage}" Aspect="AspectFit" 
+                                             BorderColor="#214f81" BorderThickness="2" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <xam:CircleImage.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">45</On>
+                                                <On Platform="WinPhone">55</On>
+                                            </OnPlatform>
+                                        </xam:CircleImage.WidthRequest>
+                                        <xam:CircleImage.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">45</On>
+                                                <On Platform="WinPhone">55</On>
+                                            </OnPlatform>
+                                        </xam:CircleImage.HeightRequest>
+                                        <xam:CircleImage.Triggers>
+                                            <DataTrigger TargetType="xam:CircleImage" Binding="{Binding Item.IsRead}" Value="True">
+                                                <Setter Property="BorderThickness" Value="1" />
+                                            </DataTrigger>
+                                        </xam:CircleImage.Triggers>
+                                    </xam:CircleImage>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Padding="0, 0, 0, 2">
+                                        <!-- Sender -->
+                                        <Label Text="{Binding Item.SenderName}" LineBreakMode="TailTruncation" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                                               HorizontalTextAlignment="Start" Margin="0, 0, 10, 0" FontAttributes="Italic, Bold" TextColor="#000">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <OnPlatform.iOS>16</OnPlatform.iOS>
+                                                    <OnPlatform.Android>16</OnPlatform.Android>
+                                                    <OnPlatform.WinPhone>15</OnPlatform.WinPhone>
+                                                </OnPlatform>
+                                            </Label.FontSize>
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Item.IsRead}" Value="True">
+                                                    <Setter Property="FontAttributes" Value="None" />
+                                                    <Setter Property="TextColor" Value="Default" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
+                                        <!-- Date  -->
+                                        <Label Text="{Binding Item.Date, Converter={StaticResource cnvNotificationDateConverter}}" LineBreakMode="TailTruncation" 
+                                               HorizontalOptions="End" VerticalOptions="FillAndExpand" HorizontalTextAlignment="End" FontAttributes="Bold" TextColor="#41a2fa">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <OnPlatform.iOS>12</OnPlatform.iOS>
+                                                    <OnPlatform.Android>12</OnPlatform.Android>
+                                                    <OnPlatform.WinPhone>13</OnPlatform.WinPhone>
+                                                </OnPlatform>
+                                            </Label.FontSize>
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Item.IsRead}" Value="True">
+                                                    <Setter Property="FontAttributes" Value="None" />
+                                                    <Setter Property="TextColor" Value="Default" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <!-- Subject -->
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Item.Subject}" LineBreakMode="TailTruncation" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand" FontAttributes="Bold" TextColor="#000">
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <OnPlatform.iOS>13</OnPlatform.iOS>
+                                                <OnPlatform.Android>13</OnPlatform.Android>
+                                                <OnPlatform.WinPhone>14</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Label.FontSize>
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Item.IsRead}" Value="True">
+                                                <Setter Property="FontAttributes" Value="None" />
+                                                <Setter Property="TextColor" Value="Default" />
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Item.Message}" LineBreakMode="TailTruncation" HorizontalOptions="FillAndExpand" 
+                                           VerticalOptions="FillAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <OnPlatform.iOS>14</OnPlatform.iOS>
+                                                <OnPlatform.Android>14</OnPlatform.Android>
+                                                <OnPlatform.WinPhone>15</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Label.FontSize>
+                                    </Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </control:UIListView>               
+            </StackLayout>
+            <ActivityIndicator x:Name="activityIndicator" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="{Binding IsBusy}" 
+                IsRunning="{Binding IsBusy}" IsEnabled="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" HeightRequest="50" WidthRequest="50"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

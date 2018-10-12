@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FListViewImpl.Custom.ViewCell"
+             xmlns:xam="clr-namespace:ListView.Forms.Plugin.Abstractions;assembly=ListView.Forms.Plugin.Abstractions"             
+             x:Class="FListViewImpl.MainPage">
+    <StackLayout>
+        <xam:FListView x:Name="lvwPersons" HasUnevenRows="true" 
+                       MultiSelect="True"
+                       ItemsSource="{Binding PersonList}" 
+                       ItemTapped="lvwPerson_ItemTapped">
+            <xam:FListView.EditActions>
+                <MenuItem Text="Delete" IsDestructive="True" CommandParameter="{Binding ItemsSelected, Source={x:Reference lvwPersons}" Clicked="OnDelete" Icon="ic_action_delete.png" />
+            </xam:FListView.EditActions>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:NotificationViewCell Person="{Binding .}">
+                        <!--<local:NotificationViewCell.View>
+                            <StackLayout Orientation="Vertical" HeightRequest="50">
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Age}" />
+                            </StackLayout>
+                        </local:NotificationViewCell.View>-->                        
+                    </local:NotificationViewCell>                   
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </xam:FListView>
+    </StackLayout>
+</ContentPage>

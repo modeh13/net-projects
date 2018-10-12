@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppPortable.View.PersonPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{Binding Id}" />
+                
+                <Label Text="Nombre" />
+                <Entry Text="{Binding FirstName}" ></Entry>
+
+                <Label Text="Apellido" />
+                <Entry Text="{Binding LastName}" ></Entry>
+
+                <Label Text="Edad" />
+                <Entry Text="{Binding Age}" Keyboard="Numeric"></Entry>
+
+                <Label Text="{Binding FullName}" />
+
+                <Label Text="Mensaje AbsoulteLayout" />
+                <Entry x:Name="txtMessage" Text=""></Entry>
+                
+                <Button Text="Guardar" Command="{Binding SaveCommand}" />
+                <Button Text="Actualizar" Command="{Binding UpdateCommand}" />
+                <Button Text="Eliminar" Command="{Binding DeleteCommand}" />
+                <Button Text="Limpiar" Command="{Binding ClearCommand}" />
+                <Button x:Name="btnAbsolute" Text="AbsoluteLayout" />
+                <Button Text="AbsoluteLayout Parameter" Command="{Binding AbsoluteCommand}"
+                        CommandParameter="{Binding Source={x:Reference txtMessage}, Path=Text}" />
+
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}">                    
+                </ActivityIndicator>
+
+                <ListView x:Name="lvwPersons" ItemsSource="{Binding Persons}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Age}" Detail="{Binding FullName}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>        
+    </ContentPage.Content>
+</ContentPage>

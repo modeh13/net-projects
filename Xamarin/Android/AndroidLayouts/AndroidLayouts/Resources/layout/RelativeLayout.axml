@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relativeLayout1">
+    <Button
+        android:text="First Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFirst" />
+    <Button
+        android:text="Second Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSecond"
+        android:layout_toRightOf="@+id/btnFirst" />
+    <Button
+        android:text="Third Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnThird"
+        android:layout_alignEnd="@id/btnSecond"
+        android:layout_below="@id/btnSecond" />
+    <TextView
+        android:id="@+id/lblFirst"
+        android:text="My First TextView on RelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/btnThird" />
+</RelativeLayout>

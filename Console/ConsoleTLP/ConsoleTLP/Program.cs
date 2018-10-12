@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -153,8 +154,49 @@ namespace ConsoleTLP
 
       private static void WorkingWithParallelForAndForEach()
       {
-         WriteHeader("Working with Parallel For and ForEach methods");        
+         WriteHeader("Working with Parallel For and ForEach methods");
 
+      }
+
+      private static void WorkingWithAsyncAwait()
+      {
+         WriteHeader("Working with Async and Await");         
+         FileStream file = new FileStream("./TestFile.bin", FileMode.OpenOrCreate);
+         //ProcessFile(file);
+         ProcessFileAsync(file);
+         Console.WriteLine("Async/Await finished.");         
+      }
+
+      private static void ProcessFile(FileStream file)
+      {
+         const string message = "This is the message that we will write on file.";
+         byte[] bytes = Encoding.UTF8.GetBytes(message);
+
+         Console.WriteLine("Writing started.");
+
+         for (int i = 0; i <= 10000; i++)
+         {
+            file.Write(bytes, 0, bytes.Length);
+         }
+         file.Close();
+
+         Console.WriteLine("Writing finished.");
+      }
+
+      private static async void ProcessFileAsync(FileStream file)
+      {
+         const string message = "This is the message that we will write on file.";
+         byte[] bytes = Encoding.UTF8.GetBytes(message);
+
+         Console.WriteLine("Writing started.");
+
+         for (int i = 0; i <= 10000; i++)
+         {
+            await file.WriteAsync(bytes, 0, bytes.Length);
+         }
+         file.Close();
+
+         Console.WriteLine("Writing finished.");
       }
 
       private static void DoSomeThingImportantMethodOne(byte taskNumber)

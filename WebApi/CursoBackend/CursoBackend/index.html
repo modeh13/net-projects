@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Petición</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+        <h2>Carros</h2>
+        <ul id="carros" />
+    </div>
+    <div>
+        <h2>Busqueda por ID</h2>
+        <input type="text" id="carId" size="5" />
+        <input type="button" value="Buscar" onclick="find();" />
+        <p id="carro" />
+    </div>
+
+    <script type="text/javascript">
+        var uri = 'ApiRest/carro';
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.ajax({
+                url: "/webApi/producto/agregarProducto",
+                type: "POST",
+                data: { "Id": 20, "Nombre": "Casco", "Descripcion": "Esta es la Descripcion", "Precio": 250.0, "Imagen": "''" },
+                success: function () {
+                }
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

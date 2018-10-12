@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>@ViewBag.Title - Net Developer Assessment</title>
+
+   @Styles.Render("~/Content/css")
+   @Scripts.Render("~/bundles/modernizr")
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  
+</head>
+<body>
+   <!-- HEADER -->
+   <header class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+         <img src="@Url.Content("~/Content/img/logo.png")" width="30" height="30" class="d-inline-block align-top" alt="Web shop">
+         WebShop
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav">
+            <li class="nav-item active">
+               @Html.ActionLink("Products", "Index", "Product", null, htmlAttributes: new { @class = "nav-link" })
+            </li>
+         </ul>
+      </div>
+   </header>
+
+   <!-- CONTENT -->
+   <div id="main-content">
+      @RenderBody()
+   </div>
+
+   <!-- FOOT -->
+   <footer class="container-fluid bg-light">
+      <div class="row">
+         <div class="col-12 text-center">
+            <h6>@DateTime.Now.Year- Author: Germán A. Ramírez Vela</h6>
+         </div>
+         <div class="col-12 text-center">
+            <a href="https://www.facebook.com/Alexander.ca13" style="color: #3b5998" target="_blank">
+               <i class="fab fa-facebook fa-2x"></i>
+            </a>
+            <a href="https://twitter.com/AleXanderNueVe" target="_blank">
+               <i class="fab fa-twitter-square fa-2x" style="color: #1583d7"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/gramirez1251/" target="_blank">
+               <i class="fab fa-linkedin fa-2x" style="color: #007bb6"></i>
+            </a>
+         </div>
+      </div>
+   </footer>
+
+   @Scripts.Render("~/bundles/jquery")
+   @Scripts.Render("~/bundles/bootstrap")
+   @Scripts.Render("~/bundles/dataTable")
+   @Scripts.Render("~/bundles/site")
+   @RenderSection("scripts", required: false)   
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿body {
+}
+
+footer {
+   position: absolute;
+   bottom: 0;
+   height: 80px;
+   padding: 10px;
+   border-top: 1px solid rgba(0, 0, 0, 0.2);
+   box-sizing: border-box;
+}
+
+#main-content {
+   padding-bottom: 10px;
+   overflow-y: auto;
+   position: absolute;
+   top: 60px;
+   bottom: 80px;
+   width: 100%;
+}
+
+table > thead > tr > th {
+   text-align: center !important;
+}
+
+/* Pnotify */
+.ui-pnotify-title {
+   font-size: 18px;
+}
+
+.ui-pnotify {
+   top: unset !important;
+   bottom: 36px !important;
+   width: 60% !important;
+   left: 20% !important;
+}
+
+hr {
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   border: 0;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

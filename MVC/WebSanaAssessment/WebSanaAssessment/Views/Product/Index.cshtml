@@ -1,0 +1,103 @@
+﻿@model IEnumerable<WebSanaAssessment.Models.ProductModel>
+
+@{
+   ViewBag.Title = "Products Page";
+   string urlForm = @Url.Action("Form", "Product");
+   string urlChangeDataSource = @Url.Action("ChangeDataSource", "Product");
+}
+
+<div class="container-fluid">
+   <div class="row pt-2 pb-2">
+      <div class="col-12 text-center">
+         <h4>@ViewBag.Title</h4>
+      </div>
+   </div>
+   <div class="row mt-2">
+      <div class="col-12 col-md-8 offset-md-2">
+         <div class="row">
+            <div class="col-12 col-md-6">
+               <div class="form-row">
+                  <div class="form-group col-12 col-md-6">
+                     <label for="ddlDataSource" style="margin-bottom: 0; font-weight: 500">Data source:</label>
+                     @Html.DropDownList("ddlDataSource", ViewData["dataSources"] as SelectList, new { @id = "ddlDataSource", @class = "form-control" })
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-md-6 align-self-center text-right">
+               <button type="button" class="btn btn-success" onclick="ShowModal(0);">
+                  <i class="fas fa-plus"></i><span class="p-2">Add</span>
+               </button>
+            </div>
+         </div>
+      </div>
+      <div class="col-12 col-md-8 offset-md-2">
+         <hr />
+      </div>      
+      <div id="dv-tbl-products" class="col-12 col-md-8 offset-md-2">
+         @Html.Partial("Grid", Model)
+      </div>
+   </div>
+
+   <!-- MODAL -->
+   <div id="dv-modal-container">
+   </div>
+</div>
+
+@section Scripts{
+   <script type="text/javascript">
+      var urlForm = '@urlForm';
+      var urlChangeDataSource = '@urlChangeDataSource';
+
+      /**
+       * Add/Edit a Product
+       * Show modal with Product form
+       * */
+      function ShowModal(productId) {
+         var params = { "productId": productId }
+
+         $.get(urlForm, params, function (data) {
+            if ($("#product-modal").length > 0) $("#product-modal").remove();
+
+            $("#dv-modal-container").append(data);
+            $("#product-modal").modal();
+            $("#product-modal").modal("show");            
+
+            $("#product-modal").on('hidden.bs.modal', function (e) {               
+               $("#product-modal").remove();
+            });
+         });
+      }
+
+      /**
+       * Event Handler for the DataSourceType's DropDownList.
+       * */
+      $("#ddlDataSource").change(function () {
+         $.when(
+            $.ajax({
+               url: urlChangeDataSource,
+               method: "POST",
+               data: { "dataSourceType": $("#ddlDataSource").val() },
+            }).done(function (response) {               
+               SetProductsTable(response);
+               Notification("Message", "Datasource have changed.", "success");
+
+            }).fail(function (jqXHR, textStatus) {
+               Notification("Error", jqXHR.status + ": " + jqXHR.statusText, "error");
+            })).then(function () {
+            });
+      });
+
+      /**
+       * Ready
+       * */
+      $(document).ready(function () {
+         SetProductsTable();
+
+         $("#ddlDataSource").chosen({
+            allow_single_deselect: true,
+            autoclose: true,
+            width: '100%'
+         });
+      });     
+   </script>
+}

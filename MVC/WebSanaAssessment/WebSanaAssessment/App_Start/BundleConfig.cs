@@ -39,7 +39,7 @@ namespace WebSanaAssessment
 
          //Styles
          #region Styles
-         bundles.Add(new StyleBundle("~/Content/css").Include(
+         bundles.Add(new StyleBundle("~/Content/styles").Include(
                       "~/Content/css/bootstrap/bootstrap.css",
                       "~/Content/css/all.css",
                       "~/Content/css/pnotify.custom.min.css",

@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2D5CEA5-B944-4469-9E07-FD5280E2621A}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WebViewTest.Droid</RootNamespace>
+    <AssemblyName>WebViewTest.Android</AssemblyName>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="25.4.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="25.4.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomRenders\WebViewRender.cs" />
+    <Compile Include="Implementations\SaveAndLoad.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\cache.manifest.template" />
+    <AndroidAsset Include="Assets\javascript\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <AndroidAsset Include="Assets\javascript\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <AndroidAsset Include="Assets\javascript\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\screen.less" />
+    <AndroidAsset Include="Assets\pics\Thumbs.db" />
+    <AndroidAsset Include="Assets\pics\images\iconexperience\Thumbs.db" />
+    <AndroidAsset Include="Assets\pics\images\old\Thumbs.db" />
+    <AndroidAsset Include="Assets\stylesheet\default.less" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\values\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebViewTest\WebViewTest.csproj">
+      <Project>{ba96bc8b-9492-462b-bd5d-3e7bed4a0e04}</Project>
+      <Name>WebViewTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\css\bootstrap.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\css\font-awesome.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\js\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\js\jquery.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Content\js\functions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\form-offline-render.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\formOffline.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\formOffline.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\formOfflineRender.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\index.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\prototype-base-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\prototype-date-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\prototype.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\underscore-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\formBuilder\offline\underscore.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\lz-string-1.3.3-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\prototype-base-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\prototype-date-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\bootstrap\css\bootstrap.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\bootstrap\js\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\dateTimeField\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\dateTimeField\datepicker.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\dateTimeField\datepicker.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\forms\formScript.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\border-radius.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\jscal2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\reduce-spacing.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\shadow-b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\gold\brushed-steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\gold\coolbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\gold\gold.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\gold\gold.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\cool-bg-hard-inv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\cool-bg-hard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\cool-bg-inv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\cool-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\drop-down.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\drop-up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\nav-left-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\nav-left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\nav-right-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\nav-right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\time-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\img\time-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\matrix\matrix.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\matrix\nav-left-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\matrix\nav-left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\matrix\nav-right-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\matrix\nav-right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\steel\brushed-steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\steel\brushed-steel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\steel\coolbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\steel\steel.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\steel\steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\css\win2k\win2k.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\jscal2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\unicode-letter.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\ca.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\cn.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\cz.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\de.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\en.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\es.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\fr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\hr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\it.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\jp.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\nl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\pl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\pt.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\ro.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\ru.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\sk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\JSCal2-1.9\src\js\lang\sv.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_anchor.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_centerpopup.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_crossframe.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_cssstyle.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_debug.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_exclusive.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_followscroll.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_hidden.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_hideform.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_setonoff.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\overlib_shadow.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_anchor_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_centerpopup_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_crossframe_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_csstyle_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_debug_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_exclusive_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_followscroll_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_hideform_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_setonoff_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\overlib\mini\overlib_shadow_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\chili-1.7.pack.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\jquery.bgiframe.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\jquery.dimensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\jquery.tooltip.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\jquery.tooltip.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\screen.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\shadow2-reverse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\tooltip\shadow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\ajax.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\context-menu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\drag-drop-folder-tree.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\popUpTree.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\jquery.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\jquery.treeview.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\jquery.treeview.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\screen.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\ajax-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\file.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\folder-closed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\minus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-black-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-black.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-default-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-default.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-famfamfam-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-famfamfam.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-gray-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-gray.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-red-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\javascript\Tree\treeJQuery\images\treeview-red.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\1x1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\620.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\address_book3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_add.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_class_cert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_comment.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_comment_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_datepicker.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_dots_comment.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_redirect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_redirect_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_remove.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_trash.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_trash_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_trash_resolve.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\btn_trash_resolve_undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\calendar_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\check2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\check3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\collapse-small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\collapse.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\column_edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\Comment_18x18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\DatePickerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\delete_13x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\delete_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\delete2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\document_delete_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\document_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\document_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\document_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\earth_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\emp_group.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\employee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\eraser_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\error-bevel-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\error-bevel-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\error.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\error_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\excel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\expand-small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\expand.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\form_blue_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\fullscreen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\funnel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\funnel_star_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\gantt-chart_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\gear_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\goldStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\gradeInvisible.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\gradeSelected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\grayStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\grid.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\headback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\home_header_left.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_checkmark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_checkmark_undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_contact.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_help.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_infobox.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_logoff.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_message_read.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_message_unread.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_record.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\icon_schedule.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\info_tsk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\information_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\information_icon_31x31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\information2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\information2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\landscape.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\line.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\link.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading10.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading7.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading8.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\loading9.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\lock_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_cathaypacific.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_cst.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_emirates.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_fedex_express.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_haeco.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_jetblue.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_lft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_lht.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_ltt.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_lufthansa_big.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_lufthansa_big_bright.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_mint.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_mint.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_mint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_mintgroup_small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_pda_edition.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_people.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_rubicon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_sas.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_skyguide.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_ual.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\logo_web_edition.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\mandatory-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\menu_dropdown_7x4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\MintImageExpired.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\MintImageExpiresSoon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\minus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\mwa_splash10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\mwa_splash9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\No_Comment_18x18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\page_setup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\pdf.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\pencil2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\pencil2_gray_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\portal_welcome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\portrait.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\printer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\printer_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\questionmark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\redirected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\redx.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\rejected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\search_sortmatch.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\signoff_item_completed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\signoff_item_future.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\signoff_item_open.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\signoff_item_open_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\signoff_item_redirected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\signoff_item_rejected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\sort-asc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\sort-desc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\sortable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\star_yellow_new_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\table_altbkcolor_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\text_area_15x15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\TN_warn_tsk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\warning_14x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\warning_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\warning_green_14x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\warning_red_14x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\watermark_ltt_tiled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\context-menu-gradient.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\dhtmlgoodies_folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\dhtmlgoodies_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\dhtmlgoodies_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\dhtmlgoodies_sheet.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\dragDrop_ind1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\dragDrop_ind2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\folder_close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\folder_dots.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\folder_folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\folder_lastsub.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\folder_open.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\folder_sub.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_10.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_100.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_101.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_102.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_103.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_104.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_105.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_106.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_107.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_108.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_109.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_12.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_123.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_125.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_13.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_132.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_133.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_134.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_135.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_136.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_14.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_15.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_160.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_17.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_18.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_19.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_20.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_21.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_22.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_23.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_24.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_25.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_26.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_27.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_271.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_271d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_28.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_281d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_299.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_30.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_31.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_32.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_33.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_34.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_35.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_36.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_37.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_38.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_39.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_40.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_41.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_42.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_43.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_44.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_45.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_46.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_47.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_48.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_49.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_50.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_51.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_52.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_53.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_54.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_55.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_56.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_57.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_58.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_59.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_60.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_61.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_62.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_63.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_64.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_65.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_66.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_67.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_68.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_69.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_7.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_70.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_71.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_72.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_73.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_74.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_74.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_75.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_76.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_77.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_78.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_79.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_8.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_80.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_81.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_82.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_83.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_84.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_85.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_86.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_87.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_88.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_89.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_9.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_90.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_91.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_92.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_94.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_95.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_96.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_97.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_98.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\assistant\MintImageAssistant_99.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\branch_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\businessman2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\clipboard_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\clipboard_empty_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\document_certificate_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\document_preferences_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\documents_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\earth_location_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\folder_document_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\graduate_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\handshake_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\table_view_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\iconexperience\user2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\old\EclipseImageListReport.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\pics\images\old\MintImageResourceSingle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\cloudstyles-dec-2013.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\configLayout.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\default.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\login.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\MintDropDownMenu.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\scorm-player.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\TreeCss\context-menu.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\stylesheet\TreeCss\drag-drop-folder-tree.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\example.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\template.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\cleanTemplate1.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\example3.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

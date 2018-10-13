@@ -1,0 +1,68 @@
+#tooltip.pretty {
+  font-family: Arial;
+  border: none;
+  width: 180px;
+  padding: 20px;
+  height: 45px;
+  opacity: 0.9;
+  background: url('shadow.png');
+  color: rgb(0, 0, 0);
+  font-family: Arial;
+  font-style: normal;
+  font-size: 10px;
+}
+
+#tooltip.pretty h3 {
+  margin-bottom: 0.75em;
+  font-size: 10pt;
+  width: 180px;
+  text-align: center;
+  margin-top: -45px;
+}
+
+#tooltip.pretty div {
+  width: 180px;
+  text-align: left;
+}
+
+#tooltip.fancy {
+  background: url('shadow2.png');
+  padding-top: 5em;
+  height: 21px;
+  color: rgb(0, 0, 0);
+  font-family: Arial;
+  font-style: normal;
+  font-size: 10px;
+}
+
+#tooltip.fancy.viewport-right {
+  background: url('shadow2-reverse.png');
+  color: rgb(0, 0, 0);
+  font-family: Arial;
+  font-style: normal;
+  font-size: 10px;
+}
+
+#extended {
+  margin: 2em 0;
+}
+
+#extended label {
+  text-decoration: underline;
+}
+
+#yahoo {
+  width: 7em;
+}
+
+#right, #right2 {
+  text-align: right;
+}
+
+#tooltip.right {
+  width: 250px;
+}
+
+#fancy2 {
+  float: right;
+}

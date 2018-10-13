@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WebViewTest"
+             xmlns:control="clr-namespace:WebViewTest.Controls;assembly=WebViewTest"
+             x:Class="WebViewTest.MainPage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 20, 0, 0" />
+            <On Platform="Android, WinPhone, Windows" Value="0, 0, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>    
+    <StackLayout>
+        <!--<Button Text="Cargar Formulario String" Command="{Binding LoadFormCommand}" />
+        <Button Text="Cargar Formulario con Recursos" Command="{Binding LoadFormWithResourcesCommand}" />-->
+        <Button Text="Cargar Formulario" Command="{Binding LoadMintFormCommand}" />        
+        <control:CustomWebView x:Name="wvwHtmlJs" Source="{Binding UrlWebViewSource}"        
+						        EvaluateJavascript="{Binding EvaluateJavascript}, Mode=OneWayToSource}"
+						        GoBack="{Binding GoBack, Mode=OneWayToSource}"
+						        Refresh="{Binding Refresh, Mode=OneWayToSource}"
+                                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    </StackLayout>
+</ContentPage>

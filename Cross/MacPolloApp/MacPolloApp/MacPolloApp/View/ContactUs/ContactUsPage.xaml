@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:MacPolloApp.Util.Extensions;assembly=MacPolloApp"
+             x:Class="MacPolloApp.View.ContactUsPage"
+             BindingContext="{Binding ContactUsViewModel, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+                <StackLayout Padding="20, 20" >
+                    <Picker x:Name="pckRequestType" Title="Asunto" ItemsSource="{Binding PqrTypeItems}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding Pqr.Type}" />
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <Label Text="Mensaje" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                            <Label Text="{Binding RemainingCharacters}" HorizontalOptions="End" />
+                        </StackLayout>
+                    </StackLayout>
+                    <Editor Text="{Binding Message}" VerticalOptions="FillAndExpand" />                    
+                    <Button Text="Enviar" Style="{StaticResource btnPrimary}" Command="{Binding SendCommand}"  VerticalOptions="End" />
+                </StackLayout>
+            </ScrollView>
+            <ActivityIndicator AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

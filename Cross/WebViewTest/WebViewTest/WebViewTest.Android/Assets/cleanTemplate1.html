@@ -1,0 +1,80 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=1.0, user-scalable=yes'>
+	<link rel="stylesheet" type="text/css" href="javascript/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/jscal2.css" />
+	
+    <link rel="stylesheet" type="text/css" href="stylesheet/default.less" />
+    <link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/steel/steel.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/Tree/treeJQuery/jquery.treeview.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/Tree/treeJQuery/screen.less" />
+    <link rel="stylesheet" type="text/css" href="javascript/tooltip/jquery.tooltip.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/tooltip/screen.css" />
+
+    <script type="text/javascript" src="javascript/overlib/overlib.js"></script>
+    <script type="text/javascript" src="javascript/JSCal2-1.9/src/js/jscal2.js"></script>
+    <script type="text/javascript" src="javascript/JSCal2-1.9/src/js/lang/en.js"></script>
+    <script type="text/javascript" src="javascript/prototype-base-extensions.js"></script>
+    <script type="text/javascript" src="javascript/prototype-date-extensions.js"></script>
+    <script type="text/javascript" src="javascript/Tree/popUpTree.js"></script>
+    <script type="text/javascript" src="javascript/Tree/context-menu.js"></script>
+    <script type="text/javascript" src="javascript/lz-string-1.3.3-min.js"></script>
+    <script type="text/javascript" src="javascript/Tree/treeJQuery/jquery.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="javascript/Tree/treeJQuery/jquery.treeview.js"></script>
+    <script type="text/javascript" src="javascript/tooltip/jquery.bgiframe.js"></script>
+    <script type="text/javascript" src="javascript/tooltip/jquery.tooltip.js"></script>
+    <script type="text/javascript" src="javascript/tooltip/chili-1.7.pack.js"></script>
+    <script type="text/javascript" src="formBuilder/offline/formOffline.js"></script>
+    <script type="text/javascript" src="javascript/forms/formScript.js"></script>
+	<script type="text/javascript" src="javascript/bootstrap/js/bootstrap.min.js"></script>
+	
+	<style type="text/css">
+		.renderContainer {
+			display: inline-block;
+		}
+	</style>
+</head>
+	<body onorientationchange="moveStandAlone();">
+		<input type="hidden" id="contextPath" value="formBuilder/offline/formOfflineRender.html" />
+		<button type="button" id="btn_show_select_record_items" class="btn btn-primary btn_show_select_record_items_class" onclick="return showSelectRecordItemModal();">selectRecordItems</button>
+		<div id="formRenderComponent">			
+			<div class="render-form-container">				
+				<div class="printingContainer">				
+				</div>					
+				<div class="renderContainer">
+					@HTML
+				</div>				
+			</div>				
+		</div>
+		
+		<div class="modal fade" id="select_recorditems_modal" tabindex="-1" role="dialog" aria-labelledby="modallabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="modallabel">select_recorditems_modal</h4>
+					</div>
+					<div class="modal-body" id="select_recorditems_modal_body">
+						<p>Description</p>
+						<div style="max-height: 70%; overflow: auto;">
+							<table class="table table-striped table-bordered mint-table-striped no-footer" id="select_recorditems_modal_table">
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" onclick="closeShowSelectRecordItemModal();">Aceptar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="formBuilder/offline/form-offline-render.js"></script>
+</html>

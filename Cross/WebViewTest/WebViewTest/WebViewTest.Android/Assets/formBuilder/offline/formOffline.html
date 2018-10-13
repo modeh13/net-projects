@@ -1,0 +1,300 @@
+<html manifest="cache.manifest">
+<head>
+<title>Form Builder Offline</title>
+<link rel="stylesheet" type="text/css" href="../../javascript/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript" src="prototype-base-extensions.js"></script>
+<script type="text/javascript" src="prototype-date-extensions.js"></script>
+<script type="text/javascript" src="formOffline.js"></script>
+<script type="text/javascript" src="../../javascript/lz-string-1.3.3-min.js"></script>
+<script type="text/javascript" src="../../javascript/forms/formScript.js"></script>
+<script type="text/javascript" src="../../javascript/Tree/treeJQuery/jquery.js"></script>
+<script type="text/javascript">
+  jQuery.noConflict();
+</script>
+<script type="text/javascript" src="../../javascript/bootstrap/js/bootstrap.min.js"></script>
+<style type="text/css">
+.table.datagrid>thead>tr>th, 
+.table.datagrid>tbody>tr>th, 
+.table.datagrid>tfoot>tr>th, 
+.table.datagrid>thead>tr>td, 
+.table.datagrid>tbody>tr>td, 
+.table.datagrid>tfoot>tr>td {
+  vertical-align: middle;
+}
+
+ 
+</style>
+
+</head>
+<body>
+  <div id="headerForm" style="text-align: center; margin-top: 4px; margin-bottom: 5px;">
+    <h2>Welcome to GradeSheet Offline</h2>
+  </div>
+  <div id="forms" align="center" style="position: relative">
+    <div id="tableForms" class="t-data-grid">
+      <table class="datagrid" rules="all">
+        <tr>
+          <td><b>Entity name</b></td>
+          <td><b>Offline Form</b></td>
+        </tr>
+        <tr>
+          <td><span id="entity_1">Trainee 1 Name</span></td>
+          <td><button type="button" onclick="updateContent('offlineTest')">Show Form</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div style="max-height: 100%" class="modal fade" id="formOfflineModal" tabindex="-1" role="dialog" aria-labelledby="modallabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="modallabel"></h4>
+        </div>
+        <div class="modal-body" id="select_recorditems_modal_body">
+          <h5 id="description"></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="confirm-btn">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+      var sendAllData = function(entity) {
+
+          var formKey = entity;
+          var separatorKeys = "_";
+          var separatorEntityKey = "-";
+          var adHocConfigurationKey = 0;
+          var gradingItemKey = 0;
+
+          if (entity.indexOf('-') > -1) {
+            var concatEntities = "";
+            var entities = entity.split(separatorEntityKey);
+            for (var i = 0; i < entities.length; i++) {
+              if (entities[i].indexOf('_') > -1) {
+                var entityKeys = entities[i].split(separatorKeys);
+                if (entityKeys.length >= 3) {
+                  concatEntities = concatEntities + entityKeys[3];
+                  if (i < (entities.length - 1)) {
+                    concatEntities = concatEntities + "-";
+                  }
+                  adHocConfigurationKey = entityKeys[0];
+                  gradingItemKey = entityKeys[2];
+                }
+              }
+            }
+            if (concatEntities != "") {
+              formKey = concatEntities;
+            }
+          } else {
+            var auxEntityKeys = entity.split(separatorKeys);
+            if (auxEntityKeys.length >= 3) {
+              formKey = auxEntityKeys[3];
+              adHocConfigurationKey = auxEntityKeys[0];
+              gradingItemKey = auxEntityKeys[2];
+            }
+          }
+
+          var splitInfo = [];
+
+          var allInfo = localStorage.getItem('form_info_' + entity);
+          if (allInfo != null) {
+            splitInfo = allInfo.split('-;@;-');
+            if (splitInfo.length <= 1) {// [#MINT-7052] Corrupted data shown when
+              // synchronize form, this case is necessary
+              // when exist old Forms stored in offline
+              // mode.
+              splitInfo = allInfo.split('@');
+            }
+          }
+
+          var instKeys = "0";
+          if (splitInfo.length >= 14) {
+            instKeys = splitInfo[13];
+          }
+          formKey = formKey.replace(/-/g, ",");
+
+          var redirectSynchronizeForm = localStorage
+              .getItem("synchronizeFormPageURL");
+          if (redirectSynchronizeForm == "") {
+            redirectSynchronizeForm = "../../signoff/RedirectSynchronizeForm";
+          }
+          var urlForm = redirectSynchronizeForm + "?userId=2749&"
+              + "formRevision=" + splitInfo[3] + "&className="
+              + encodeURI(jQuery('<div>' + splitInfo[2] + '</div>').text())
+              + "&recordItemKey=" + splitInfo[4] + "&useCase=" + splitInfo[5]
+              + "&courseTopicKey=" + splitInfo[6] + "&requestKey="
+              + splitInfo[7] + "&courseKey=" + splitInfo[8] + "&eventKey="
+              + splitInfo[11] + "&productRevisionKey=" + splitInfo[12]
+              + "&resourceKeys=" + formKey + "&instructorKeys=" + instKeys
+              + "&adHocConfigurationKey=" + adHocConfigurationKey
+              + "&gradingItemKey=" + gradingItemKey;
+
+          if (splitInfo[9] != -1) {
+            urlForm += "&graded=" + splitInfo[9];
+          }
+          if (splitInfo[10] != -1) {
+            urlForm += "&grader=" + splitInfo[10];
+          }
+          urlForm += "&standalone=true";
+
+          location.href = urlForm;
+        
+      }
+
+      /*
+       * Load table with forms stored in cache.
+       */
+      var loadFormsTable = function() {
+        if (localStorage) {
+          var tableCode = "<table class=\"datagrid table table-hover table-bordered table-striped table-condensed\" style=\"width:65%;\" rules=\"all\">"
+              + "<thead>"
+              + "<tr class=\"grey active\">"
+              + "<td align=\"center\" style=\"width:20%\"><b>Signoff For</b></td>"
+              + "<td align=\"center\" style=\"width:20%\"><b>Record Item</b></td>"
+              + "<td align=\"center\" style=\"width:20%\"><b>Class Name </b></td>"
+              + "<td align=\"center\" style=\"width:12%\"><b>Offline Form</b></td>"
+              + "<td align=\"center\" style=\"width:18%\"><b>Synchronize Form Data</b></td>"
+              + "<td align=\"center\" style=\"width:10%\"><b>Remove</b></td>"
+              + "</tr>"
+              + "</thead>"
+              + "<tbody style=\"font-size:14px;\">";
+
+          var allKeys = localStorage.getItem('key_forms');
+          if (allKeys) {
+            var arrayAllKeys = allKeys.split(';');
+            var sizeKeys = arrayAllKeys.length;
+            var index;
+            for (index = 0; index < sizeKeys; index++) {
+              if (arrayAllKeys[index] != null && arrayAllKeys[index] != "") {
+                var formKey = arrayAllKeys[index];
+                var splitInfo = [];
+                var classRow = "class=\"classeslight\"";
+
+                var allInfo = localStorage.getItem('form_info_' + formKey);
+                if (allInfo != null) {
+                  splitInfo = allInfo.split('-;@;-');
+                  if (splitInfo.length <= 1) { // [#MINT-7052] Corrupted data shown
+                    // when synchronize form, this case is
+                    // necessary when exist old Forms
+                    // stored in offline mode.
+                    splitInfo = allInfo.split('@');
+                  }
+                }
+                if (index % 2 == 1) {
+                  classRow = "class=\"classesgrey\"";
+                }
+                tableCode += "<tr " + classRow + ">" + "<td align=\"left\">"
+                    + splitInfo[0] + "</td>" + "<td align=\"left\">"
+                    + splitInfo[1] + "</td>" + "<td align=\"left\">";
+                if ("" == splitInfo[2]) {
+                  tableCode += "Ad Hoc";
+                } else {
+                  tableCode += splitInfo[2];
+                }
+                tableCode += "</td>"
+                    + "<td align='center'>"
+                    + "<button class=\"submitbuttonautowidth btn btn-primary\" type=\"button\" onclick=\"openRenderPage('"
+                    + formKey
+                    + "')\" style=\"margin:5px 0 5px 0;\">Show Form</button>"
+                    + "</td>"
+                    + "<td align='center'>"
+                    + "<button class=\"submitbuttonautowidth btn btn-primary\" type=\"button\" data-toggle=\"modal\" data-target=\"#formOfflineModal\" data-modaltype=\"synchronize\" data-formkey=\""
+                    + formKey
+                    + "\" style=\"margin:5px 0 5px 0;\">Synchronize</button>"
+                    + "</td>"
+                    + "<td align='center'>"
+                    + "<button class=\"submitbuttonautowidth btn btn-primary\" type=\"button\"  data-toggle=\"modal\" data-target=\"#formOfflineModal\" data-modaltype=\"remove\"  data-formkey=\""
+                    + formKey
+                    + "\" style=\"margin:5px 0 5px 0;\">Remove</button>"
+                    + "</td>" + "</tr>";
+              }
+            }
+          }
+          tableCode += "</tbody>"
+          tableCode += "</table>";
+        } else {
+          tableCode = "<h4 class=\"alert alert-danger\" style=\"width:60%;\">LocalStorage is not available in this browser.</h4>";
+        }
+        document.getElementById('tableForms').innerHTML = tableCode;
+      }
+
+      /*
+       * Open form in offline mode.
+       */
+      var openRenderPage = function(formKey) {
+        // Encode key
+        formKey = btoa(formKey);
+        var url = "../../formBuilder/offline/formOfflineRender.html#mint?"
+            + formKey;
+        window.location.href = url;
+      }
+
+      /*
+       * Remove form from stored cache.
+       */
+      var removeEntityData = function(entityKey) {
+          clearLocalStorageData(entityKey);
+          loadFormsTable();
+      }
+
+      loadFormsTable();
+      
+      
+      /**
+      * POPUP DIALOG TO SYNCHRONIZE OT REMOVE BUTTONS
+      */
+      var sendAllDataFunc = function(event){
+        var formKey = event.data.formkey;
+        jQuery("#formOfflineModal").modal("hide");
+        sendAllData(""+formKey);
+      };
+      
+      var removeEntityDataFunc = function(event){
+        var formKey = event.data.formkey;
+        jQuery("#formOfflineModal").modal("hide");
+        removeEntityData(""+formKey);
+      };
+      
+      jQuery("#formOfflineModal").on("show.bs.modal",function(event){
+        var messageRemove = "Do you really want to remove this entity from storage?";
+        var messageSynchronize = "By synchronizing the form, it will be removed from the offline cache. Do you want to continue?";
+        
+        var modal = jQuery(this);
+        var buttonCliked = jQuery(event.relatedTarget);
+        var modalType = buttonCliked.data('modaltype');
+        var formKey = buttonCliked.data('formkey');
+        
+        var $title = modal.find('.modal-title');
+        var $description = modal.find('#description');
+        var $confirmBtn = modal.find('#confirm-btn');
+        
+        if(modalType==="synchronize"){
+          $title.text("Synchronize Form Data");
+          $description.text(messageSynchronize);
+          $confirmBtn.click({"formkey":formKey},sendAllDataFunc);
+        }else if(modalType==="remove"){
+          $title.text("Remove from cache");
+          $description.text(messageRemove);
+          $confirmBtn.click({"formkey":formKey},removeEntityDataFunc);
+        }
+      });
+      
+      jQuery("#formOfflineModal").on("hide.bs.modal",function(event){
+        var modal = jQuery(this);
+        modal.find('.modal-title').text("");
+        modal.find('#description').text("");
+        modal.find('#confirm-btn').unbind("click",sendAllDataFunc);
+        modal.find('#confirm-btn').unbind("click",removeEntityDataFunc);
+      });
+      
+    </script>
+</body>
+</html>

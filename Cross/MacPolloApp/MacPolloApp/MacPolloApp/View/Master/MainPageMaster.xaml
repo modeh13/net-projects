@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MacPolloApp.View;assembly=MacPolloApp"
+             xmlns:i18n="clr-namespace:MacPolloApp.Util.Extensions;assembly=MacPolloApp"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MacPolloApp.View.Master.MainPageMaster"
+             Title="Master"
+             BindingContext="{Binding MainPageMasterViewModel, Source={StaticResource Locator}}">
+    <StackLayout>
+        <ListView x:Name="lvwMenuItems"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="Beige">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <!--<ffimageloading:CachedImage Aspect="AspectFit" DownsampleToViewSize="false" Source="menu_header3.png" 
+                                                Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="4">
+                    </ffimageloading:CachedImage>-->
+                    <!--<Image Aspect="AspectFit" Source="menu_header3.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="4" VerticalOptions="FillAndExpand" HorizontalOptions="Fill"></Image>-->
+                    <!--<BoxView BackgroundColor="Blue" Grid.Column="1" Grid.Row="1"></BoxView>-->
+                    <controls:CircleImage Source="logo.png" Aspect="AspectFit" BorderThickness="2" FillColor="#FFFFFF" BorderColor="#000000" Grid.Column="1" Grid.Row="1">
+                        <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">50</On>
+                                <On Platform="WinPhone">50</On>
+                            </OnPlatform>
+                        </controls:CircleImage.WidthRequest>
+                        <controls:CircleImage.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">50</On>
+                                <On Platform="WinPhone">50</On>
+                            </OnPlatform>
+                        </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>
+                    <Label Grid.Column="1" Grid.Row="3" Text="{i18n:Translate App_Name}" FontSize="Medium" Grid.ColumnSpan="2" />
+                    <Label Grid.Column="1" Grid.Row="4" Text="german.ca13@gmail.com.co" FontSize="Small" Grid.ColumnSpan="2" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10, 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                            </Grid.RowDefinitions>
+                            <Image Aspect="AspectFit" Source="{Binding IconSource}" Grid.Column="0"  />
+                            <Label Text="{Binding Title}" Grid.Column="1" Style="{StaticResource lblTitle}" Margin="20, 0, 0, 0" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:locator="clr-namespace:MacPolloApp.Locator"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="MacPolloApp.App">
+    <Application.Resources>
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!-- Pallete -->
+            <Color x:Key="primary-back-title-color">#9D2F21</Color>
+            <Color x:Key="primary-title-color">#FFFFFF</Color>
+            <Color x:Key="primary-text-color">#000000</Color>
+
+            <!-- ========================================================================================= -->
+            <!-- Buttons -->
+            <Style x:Key="btnPrimary" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Key=primary-back-title-color}" />
+                <Setter Property="TextColor" Value="{StaticResource Key=primary-title-color}" />
+            </Style>
+
+            <!-- Labels -->
+            <Style x:Key="lblTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Key=primary-text-color}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+
+            <!--<Style x:Key="Avatar" TargetType="controls:CircleImage" >
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="BorderThickness" Value="6"/>
+                <Setter Property="BorderColor" Value="{StaticResource primary-text-color}"/>
+            </Style>-->
+
+            <!-- NavigationPage -->
+            <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Key=primary-back-title-color}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource Key=primary-title-color}"/>
+            </Style>
+            <locator:ViewModelLocator x:Key="Locator"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

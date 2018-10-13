@@ -1,0 +1,1493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9DE2C9B-DD6A-4EC4-AC58-05E53433570A}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WebViewTest.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>WebViewTest.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CustomRenders\ToolbarMenuPageRender.cs" />
+    <Compile Include="CustomRenders\WebViewRender.cs" />
+    <Compile Include="Implementations\SaveAndLoad.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\formBuilder\offline\cache.manifest.template" />
+    <BundleResource Include="Resources\javascript\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <BundleResource Include="Resources\javascript\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <BundleResource Include="Resources\javascript\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\screen.less" />
+    <BundleResource Include="Resources\pics\Thumbs.db" />
+    <BundleResource Include="Resources\pics\images\iconexperience\Thumbs.db" />
+    <BundleResource Include="Resources\pics\images\old\Thumbs.db" />
+    <BundleResource Include="Resources\stylesheet\default.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="ZipArchive, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ZipArchive.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\form-offline-render.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\formOffline.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\formOffline.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\formOfflineRender.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\index.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\prototype-base-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\prototype-date-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\prototype.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\underscore-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\formBuilder\offline\underscore.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\lz-string-1.3.3-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\prototype-base-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\prototype-date-extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\bootstrap\css\bootstrap.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\bootstrap\js\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\dateTimeField\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\dateTimeField\datepicker.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\dateTimeField\datepicker.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\forms\formScript.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\border-radius.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\jscal2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\reduce-spacing.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\shadow-b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\gold\brushed-steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\gold\coolbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\gold\gold.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\gold\gold.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\cool-bg-hard-inv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\cool-bg-hard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\cool-bg-inv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\cool-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\drop-down.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\drop-up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\nav-left-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\nav-left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\nav-right-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\nav-right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\time-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\img\time-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\matrix\matrix.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\matrix\nav-left-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\matrix\nav-left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\matrix\nav-right-x2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\matrix\nav-right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\steel\brushed-steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\steel\brushed-steel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\steel\coolbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\steel\steel.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\steel\steel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\css\win2k\win2k.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\jscal2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\unicode-letter.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\ca.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\cn.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\cz.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\de.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\en.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\es.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\fr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\hr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\it.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\jp.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\nl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\pl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\pt.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\ro.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\ru.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\sk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\JSCal2-1.9\src\js\lang\sv.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_anchor.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_centerpopup.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_crossframe.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_cssstyle.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_debug.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_exclusive.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_followscroll.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_hidden.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_hideform.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_setonoff.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\overlib_shadow.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_anchor_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_centerpopup_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_crossframe_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_csstyle_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_debug_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_exclusive_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_followscroll_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_hideform_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_setonoff_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\overlib\mini\overlib_shadow_mini.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\chili-1.7.pack.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\jquery.bgiframe.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\jquery.dimensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\jquery.tooltip.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\jquery.tooltip.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\screen.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\shadow2-reverse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\tooltip\shadow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\ajax.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\context-menu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\drag-drop-folder-tree.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\popUpTree.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\jquery.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\jquery.treeview.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\jquery.treeview.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\screen.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\ajax-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\file.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\folder-closed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\minus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-black-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-black.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-default-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-default.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-famfamfam-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-famfamfam.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-gray-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-gray.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-red-line.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\javascript\Tree\treeJQuery\images\treeview-red.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\1x1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\620.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\address_book3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_add.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_class_cert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_comment.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_comment_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_datepicker.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_dots_comment.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_redirect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_redirect_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_remove.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_trash.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_trash_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_trash_resolve.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\btn_trash_resolve_undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\calendar_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\check2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\check3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\collapse-small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\collapse.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\column_edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\Comment_18x18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\DatePickerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\delete_13x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\delete_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\delete2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\document_delete_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\document_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\document_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\document_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\earth_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\emp_group.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\employee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\eraser_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\error-bevel-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\error-bevel-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\error.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\error_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\excel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\expand-small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\expand.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\form_blue_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\fullscreen.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\funnel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\funnel_star_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\gantt-chart_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\gear_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\goldStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\gradeInvisible.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\gradeSelected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\grayStar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\grid.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\headback.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\home_header_left.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_checkmark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_checkmark_undo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_contact.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_help.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_infobox.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_logoff.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_message_read.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_message_unread.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_record.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\icon_schedule.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\info_tsk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\information_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\information_icon_31x31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\information2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\information2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\landscape.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\line.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\link.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading10.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading7.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading8.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\loading9.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\lock_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_cathaypacific.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_cst.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_emirates.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_fedex_express.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_haeco.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_jetblue.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_lft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_lht.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_ltt.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_lufthansa_big.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_lufthansa_big_bright.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_mint.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_mint.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_mint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_mintgroup_small.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_pda_edition.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_people.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_rubicon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_sas.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_skyguide.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_ual.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\logo_web_edition.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\mandatory-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\menu_dropdown_7x4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\MintImageExpired.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\MintImageExpiresSoon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\minus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\mwa_splash10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\mwa_splash9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\No_Comment_18x18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\page_setup.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\pdf.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\pencil2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\pencil2_gray_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\portal_welcome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\portrait.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\printer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\printer_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\questionmark.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\redirected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\redx.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\rejected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\search_sortmatch.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\signoff_item_completed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\signoff_item_future.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\signoff_item_open.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\signoff_item_open_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\signoff_item_redirected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\signoff_item_rejected.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\sort-asc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\sort-desc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\sortable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\star_yellow_new_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\table_altbkcolor_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\text_area_15x15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\TN_warn_tsk.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\warning_14x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\warning_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\warning_green_14x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\warning_red_14x13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\watermark_ltt_tiled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\context-menu-gradient.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\dhtmlgoodies_folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\dhtmlgoodies_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\dhtmlgoodies_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\dhtmlgoodies_sheet.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\dragDrop_ind1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\dragDrop_ind2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\folder_close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\folder_dots.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\folder_folder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\folder_lastsub.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\folder_open.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\folder_sub.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_10.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_100.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_101.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_102.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_103.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_104.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_105.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_106.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_107.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_108.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_109.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_12.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_123.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_125.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_13.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_132.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_133.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_134.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_135.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_136.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_14.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_15.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_16.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_160.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_17.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_18.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_19.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_20.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_21.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_22.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_23.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_24.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_25.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_26.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_27.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_271.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_271d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_28.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_281d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_299.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_30.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_31.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_32.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_33.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_34.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_35.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_36.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_37.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_38.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_39.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_40.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_41.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_42.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_43.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_44.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_45.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_46.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_47.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_48.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_49.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_50.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_51.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_52.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_53.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_54.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_55.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_56.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_57.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_58.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_59.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_60.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_61.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_62.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_63.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_64.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_65.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_66.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_67.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_68.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_69.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_7.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_70.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_71.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_72.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_73.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_74.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_74.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_75.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_76.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_77.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_78.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_79.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_8.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_80.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_81.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_82.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_83.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_84.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_85.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_86.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_87.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_88.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_89.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_9.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_90.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_91.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_92.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_94.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_95.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_96.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_97.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_98.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\assistant\MintImageAssistant_99.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\branch_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\businessman2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\clipboard_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\clipboard_empty_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\document_certificate_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\document_preferences_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\documents_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\earth_location_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\folder_document_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\graduate_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\handshake_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\table_view_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\iconexperience\user2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\old\EclipseImageListReport.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pics\images\old\MintImageResourceSingle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\cloudstyles-dec-2013.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\configLayout.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\default.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\login.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\MintDropDownMenu.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\scorm-player.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\TreeCss\context-menu.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\stylesheet\TreeCss\drag-drop-folder-tree.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\example.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\template.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\ZipArchive.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebViewTest\WebViewTest.csproj">
+      <Project>{ba96bc8b-9492-462b-bd5d-3e7bed4a0e04}</Project>
+      <Name>WebViewTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

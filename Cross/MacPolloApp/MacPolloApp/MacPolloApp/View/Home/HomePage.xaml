@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:MacPolloApp.Util.Extensions;assembly=MacPolloApp"           
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"             
+             x:Class="MacPolloApp.View.HomePage"
+             Title="{i18n:Translate Home_Title}"
+             BindingContext="{Binding HomeViewModel, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!-- Buttons (New, Recommended) -->
+            <RelativeLayout x:Name="ButtonsLayout" HeightRequest="50"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15, Constant=0}"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+                            BackgroundColor="Blue">
+                <Button Text="{i18n:Translate Home_btnNew}" Style="{StaticResource btnPrimary}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45, Constant=0}" />
+                
+                <Button Text="{i18n:Translate Home_btnRecommended}"  Style="{StaticResource btnPrimary}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=0}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.45, Constant=0}"/>
+            </RelativeLayout>
+
+            <!-- CarouselView ImagesHome -->
+            <RelativeLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.20, Constant=50}"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=0}">
+                <controls:CarouselViewControl x:Name="cvcImagesHome" Orientation="Horizontal" InterPageSpacing="0" Position="{Binding Position}" ItemsSource="{Binding Images}" 
+                                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                              ShowIndicators="true" CurrentPageIndicatorTintColor="#000000" IndicatorsTintColor="#FFFFFF">
+                    <controls:CarouselViewControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <ffimageloading:CachedImage Grid.RowSpan="2" Aspect="AspectFill" DownsampleToViewSize="false" Source="{Binding ImageUrl}">
+                                </ffimageloading:CachedImage>
+                                <!--<StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="10">
+                                    --><!--<Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>--><!--
+                                </StackLayout>-->
+                            </Grid>
+                        </DataTemplate>
+                    </controls:CarouselViewControl.ItemTemplate>
+                </controls:CarouselViewControl>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

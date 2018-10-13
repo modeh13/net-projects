@@ -1,0 +1,153 @@
+/* @import "cloudstyles-dec-2013.css";*/
+body, td {
+  font-family: arial;
+  font-size: 12px;
+}
+
+#tt_top {
+  padding: 0;
+  margin: 0;
+}
+
+#tt_top_navMenu {
+  width: 100%;
+  height: 34px;
+  background-color: #e3e3e3;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #aaaaaa;
+  margin-bottom: 20px;
+}
+
+#top_title {
+  position: absolute;
+  top: 38px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#top_credit {
+  position: absolute;
+  top: 19px;
+  right: 0;
+}
+
+#top_credit a {
+  font-size: 8px;
+  text-decoration: none;
+  color: #aaa;
+}
+
+#top_credit a:hover {
+  color: #555;
+}
+
+#tt_left {
+  background: #FFFFFF url(../images/scormplayer/scorm_left.jpg) no-repeat scroll left 0;
+  height: 100%;
+}
+
+.player_border {
+  background: #FFFFFF url(../images/scormplayer/border.jpg) repeat-x;
+  height: 48px;
+}
+
+div#menuToggle {
+  width: 32px;
+  height: 24px;
+  background: url(../images/scormplayer/menuToggle.jpg) no-repeat;
+  overflow: hidden;
+  line-height: 100px;
+}
+
+div#previous, div#next, div#closeSco, #tt_top_navMenu table, div#returnToLms, div#help {
+  position: absolute;
+  height: 21px;
+}
+
+div#previous span, div#next span, div#returnToLms span, div#closeSco {
+  height: 21px;
+  cursor: pointer;
+  display: block;
+  line-height: 21px;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+
+div#previous:hover span, div#next:hover span, div#closeSco:hover {
+  height: 21px;
+  cursor: pointer;
+  display: block;
+  line-height: 21px;
+  text-decoration: underline;
+}
+
+div#previous {
+  left: 80px;
+  top: 12px;
+  background: url(../images/scormplayer/seperator.jpg) no-repeat left;
+}
+
+div#previous span {
+  background: url(../images/scormplayer/navigate_left2.png) no-repeat left;
+  margin-left: 10px;
+  padding-left: 25px;
+  padding-right: 10px;
+}
+
+div#next {
+  left: 195px;
+  top: 12px;
+  background: url(../images/scormplayer/seperator.jpg) no-repeat right;
+}
+
+div#next span {
+  background: url(../images/scormplayer/navigate_right2.png) no-repeat right;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+div#closeSco {
+  left: 279px;
+  top: 12px;
+  background: url(../images/scormplayer/close.png) no-repeat right;
+  padding-right: 0px;
+  width: 21px;
+  overflow: hidden;
+  color: transparent;
+}
+
+#tt_top_navMenu table {
+  top: 12px;
+  left: 320px;
+}
+
+div#returnToLms {
+  right: 130px;
+  top: 6px;
+  height: 25px;
+}
+
+div#returnToLms span {
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 25px;
+  background: url(../images/scormplayer/returnToLms.png) no-repeat right;
+  width: 63px;
+  height: 25px;
+  color: transparent;
+}
+
+div#help {
+  right: 0px;
+  top: 0px;
+  background: url(../images/scormplayer/help2.png) no-repeat right;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+div#help span {
+  visibility: hidden;
+}

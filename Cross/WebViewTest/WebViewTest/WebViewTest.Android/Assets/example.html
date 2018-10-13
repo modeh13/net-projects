@@ -1,0 +1,102 @@
+<style type="text/css"> #divContentForm div, #divContentForm table, #divContentForm textarea, #divContentForm input, #divContentForm legend { color:rgb(0,0,0); font-family:Arial; font-style:normal; font-weight:normal; font-size:10px; box-sizing: initial; } #divContentForm label { font:inherit; display:inline; } #divContentForm input[type="radio"], #divContentForm input[type="checkbox"] { vertical-align:middle; margin:1px 1px 0 1px; } #divContentForm legend { -webkit-padding-start: 2px; -webkit-padding-end: 2px; width: initial; margin-bottom: initial; border-bottom: initial; } #divContentForm input[type="text"], #divContentForm textarea { margin:0px; padding:0px; box-sizing: border-box; -webkit-box-sizing:border-box; -moz-box-sizing: border-box; }</style>
+<div class="formComponent" id="divContentForm" style="position:relative; height:240px; margin:3px; background-color:#eeeeee; ">
+<div id="FB_DIV_MAIN_ITERATOR1" componentType=SFITERATOR style="position:relative; left:20px; top:20px; width:410px; visibility:visible; "><div id="FB_ITERATOR_DIV_TRAINEE_ERIK_0_ENT_10327_RI_0_PK_0" style="height:200px; px; width:400px; visibility:visible; position:relative;"><div id="DIV_FB_TXTB_TEXTBOX1_ERIK_0_ENT_10327_RI_0_PK_1" componentType=TXTB style="visibility:visible; left:65px; top:30px; position:absolute; "><input type="text" id="FB_TXTB_TEXTBOX1_ERIK_0_ENT_10327_RI_0_PK_1" style="visibility:visible; display:block; position:relative; text-align:left; height:30px; width:100px; " name="FB_TXTB_TEXTBOX1_ERIK_0_ENT_10327_RI_0_PK_1" value="Textbox1" mandatory="false" onchange="pB('0','1','1','true','pedro','null','[VISIBLE]:false-;-','null');" class = " cbh"/></div><div id="DIV_FB_TXTB_TEXTBOX2_ERIK_0_ENT_10327_RI_0_PK_1" componentType=TXTB style="visibility:visible; left:180px; top:30px; position:absolute; "><input type="text" id="FB_TXTB_TEXTBOX2_ERIK_0_ENT_10327_RI_0_PK_1" style="visibility:visible; display:block; position:relative; text-align:left; height:30px; width:100px; " name="FB_TXTB_TEXTBOX2_ERIK_0_ENT_10327_RI_0_PK_1" value="Textbox2" mandatory="false"/></div><div id="DIV_FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3" componentType=TXTB style="white-space:nowrap; visibility:visible; left:70px; top:80px; position:absolute; "><table border="0" cellPadding="0" cellSpacing="0"><tr><td><input type="text" id="FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3"  style="text-align:left; height:30px; width:82px; " istime="false" name="FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3" value="" mandatory="false" datePickerClass/></td><td><button id="F_FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3" onclick="showCalendar(0);" class="inputExtension" style="background-repeat:no-repeat; background-color:transparent; background-image:url('@APP-WEB-PORTAL-CONTEXT@/javascript/dateTimeField/calendar.png'); border:0px; width:15px; z-index:3; height:15px; vertical-align:middle;"></button></td></tr></table></div></div><input type="hidden" name="FB_RI_OUTSIDE_RII_LIST_ERIK_0_ENT_0_RI_0_PK_1" id="FB_RI_OUTSIDE_RII_LIST_ERIK_0_ENT_0_RI_0_PK_1" value="3136"/></div>
+<script id="scriptOffline" type="text/javascript">
+componentsNamesMap = {
+"FB_ITERATOR_DIV_TRAINEE_ERIK_0_ENT_0_RI_0_PK_0" : "ITERATOR1",
+"FB_TXTB_TEXTBOX1_ERIK_0_ENT_10327_RI_0_PK_1" : "TEXTBOX1",
+"FB_TXTB_TEXTBOX2_ERIK_0_ENT_10327_RI_0_PK_1" : "TEXTBOX2",
+"FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3" : "TEXTBOX3"
+};
+radioButtonNamesMap = {
+};
+behaviorComponentNames = [
+"FB_TXTB_TEXTBOX1_ERIK_0_ENT_10327_RI_0_PK_1",
+"FB_TXTB_TEXTBOX2_ERIK_0_ENT_10327_RI_0_PK_1"];
+
+calendars[0] = Calendar.setup({
+inputField : 'FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3',
+trigger : 'F_FB_TXTB_TEXTBOX3_ERIK_0_ENT_10327_RI_3136_PK_-3',
+onSelect : function() { this.hide(); var inputField = document.getElementById(this.args["inputField"]); if (inputField && inputField.onchange) inputField.onchange(); },
+showTime : false,
+fdow : 0,
+weekend : "6,0",
+dateFormat : "%m/%d/%Y",
+selectionType : Calendar.SEL_SINGLE
+});
+
+showCalendar = function(index) {
+  var indexInt = parseInt(index);
+  var c = calendars[indexInt];
+  if (c == null) return;
+  c["configuring"] = 1;
+  var inputField = document.getElementById(c.args["inputField"]);
+  var isPeriod = inputField.getAttribute("class") == 'periodPicker';
+  var curValue = inputField.value;
+  c.selection.clear(false);
+  if (curValue) {
+    var hasTime = inputField.getAttribute("isTime");
+    var monthFirst = c.args["dateFormat"].indexOf("%d") > c.args["dateFormat"].indexOf("%m");
+    if (isPeriod) {
+      var sepIndex = curValue.indexOf("-");
+      var startD, endD;
+      if (sepIndex >= 0) {
+        var strStart = curValue.substring(0, sepIndex).trim();
+        var strEnd = curValue.substring(sepIndex+1).trim();
+        startD = Calendar.parseDate(strStart, monthFirst);
+        endD = Calendar.parseDate(strEnd, monthFirst);
+      }
+      else
+        startD = Calendar.parseDate(curValue, monthFirst);
+      if (startD) {
+        if (hasTime) c.setTime(startD.getHours() * 100+startD.getMinutes(), true);
+        if (endD)
+          c.selection.set([[Calendar.dateToInt(startD), Calendar.dateToInt(endD)]]);
+        else
+          c.selection.set([Calendar.dateToInt(startD)]);
+      }
+    }
+    else {
+      var dd = Calendar.parseDate(curValue, monthFirst);
+      if (dd) {
+        if (hasTime) c.setTime(dd.getHours() * 100+dd.getMinutes(), true);
+        c.selection.set([Calendar.dateToInt(dd)]);
+      }
+    }
+  }
+  c.refresh();
+  c["configuring"] = undefined;
+}
+</script>
+</div>
+<script type="text/javascript">
+entityMap = {
+"10327" : 'BJORN JOELSSON'
+};
+
+var setEntityKeys = new Array();
+setEntityKeys[0] = "145_3136_0_10327_12547";
+
+var dateFormat = 'MM/DD/YYYY';
+var dateTimeFormat = 'MM/DD/YYYY HH:mm';
+
+recordItemsMap = {
+"3136" : "Example Form"
+};
+
+insertError();
+
+exeBehFirstTime();
+
+initRadioModel();
+setRemoveSelectRIButton(false);
+setRotateStandalone(false);
+moveStandAlone();
+maxWidthForm="420px";
+mandatory_Icon = "@APP-WEB-PORTAL-CONTEXT@/pics/mandatory-Icon.png";
+
+setDateFormat("%m/%d/%Y");
+
+setJavaDateFormat("MM/dd/yyyy");
+var offlineDetails = "<li>JOELSSON, BJORN (BJOELSSON)-;@;-Example Form-;@;--;@;-145-;@;-3136-;@;-4-;@;-0-;@;-0-;@;-0-;@;-10327k-1-;@;-10327k-1-;@;-0-;@;-0-;@;-12547-;@;-";
+</script>

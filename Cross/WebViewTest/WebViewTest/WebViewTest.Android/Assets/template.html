@@ -1,0 +1,213 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" type="text/css" href="stylesheet/default.less" />
+    <link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/jscal2.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/border-radius.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/JSCal2-1.9/src/css/steel/steel.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/Tree/treeJQuery/jquery.treeview.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/Tree/treeJQuery/screen.less" />
+    <link rel="stylesheet" type="text/css" href="javascript/tooltip/jquery.tooltip.css" />
+    <link rel="stylesheet" type="text/css" href="javascript/tooltip/screen.css" />
+
+    <script type="text/javascript" src="javascript/overlib/overlib.js"></script>
+    <script type="text/javascript" src="javascript/JSCal2-1.9/src/js/jscal2.js"></script>
+    <script type="text/javascript" src="javascript/JSCal2-1.9/src/js/lang/en.js"></script>
+    <script type="text/javascript" src="javascript/prototype-base-extensions.js"></script>
+    <script type="text/javascript" src="javascript/prototype-date-extensions.js"></script>
+    <script type="text/javascript" src="javascript/Tree/popUpTree.js"></script>
+    <script type="text/javascript" src="javascript/Tree/context-menu.js"></script>
+    <script type="text/javascript" src="javascript/lz-string-1.3.3-min.js"></script>
+    <script type="text/javascript" src="javascript/Tree/treeJQuery/jquery.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="javascript/Tree/treeJQuery/jquery.treeview.js"></script>
+    <script type="text/javascript" src="javascript/tooltip/jquery.bgiframe.js"></script>
+    <script type="text/javascript" src="javascript/tooltip/jquery.tooltip.js"></script>
+    <script type="text/javascript" src="javascript/tooltip/chili-1.7.pack.js"></script>
+    <script type="text/javascript" src="formBuilder/offline/formOffline.js"></script>
+    <script type="text/javascript" src="javascript/forms/formScript.js"></script>
+</head>
+	<body onorientationchange="moveStandAlone();">
+		<input type="hidden" id="contextPath" value="formBuilder/offline/formOfflineRender.html" />
+		<div id="formRenderComponent">
+			<div id="errorComponents" style="font-size: 8pt; font-weight: bold; margin: 1px 1px 1px 1px; display: none;">
+				<table class="generic" style="margin-bottom: 15px;">
+					<tr>
+						<td style="padding: 8px;" width="5%"><img src="pics/error.gif" /></td>
+						<td style="padding: 8px; vertical-align: top;" width="95%">
+							<div id="errorMessage"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<t:form style="display:inline;">
+				<t:if test="!isContainsErrors()">
+					<t:delegate t:to="block:buttons" />
+				</t:if>
+				<div class="render-form-container">
+					<t:if test="isPrintingState()">
+						<div class="printingContainer">
+							<t:signoff.MintSignoffFormPrint t:entityInfoList="entityFormInfos" />
+						</div>
+						<p:else>
+							<div class="renderContainer">
+								@HTML
+							</div>
+						</p:else>
+					</t:if>
+				</div>
+				<input t:type="Hidden" t:value="valueComponents" t:encoder="StringValueEncoder" id="valueComponents" style="display: none;" />
+				<input t:type="Hidden" t:value="labelValuesComp" t:encoder="StringValueEncoder" id="labelValuesComp" style="display: none;" />
+				<input t:type="Hidden" t:value="mandatoryValues" t:encoder="StringValueEncoder" id="mandatoryValues" style="display: none;" />
+				<input t:type="Hidden" t:value="styleValues" t:encoder="StringValueEncoder" id="styleValues" style="display: none;" />
+				<input t:type="Hidden" t:value="containerStyleValues" t:encoder="StringValueEncoder" id="containerStyleValues" style="display: none;" />
+				<input t:type="Hidden" t:value="disabledValues" t:encoder="StringValueEncoder" id="disabledValues" style="display: none;" />
+				<input t:type="Hidden" t:value="readOnlyValues" t:encoder="StringValueEncoder" id="readOnlyValues" style="display: none;" />
+				<input t:type="Hidden" t:value="reasonComponents" t:encoder="StringValueEncoder" id="reasonComponents" style="display: none;" />
+				<input t:type="Hidden" t:value="unselectedCheckComp" t:encoder="StringValueEncoder" id="unselectedCheckComp" style="display: none;" />
+				<input t:type="Hidden" t:value="removeAssgnmntComponents" t:encoder="StringValueEncoder" id="removeAssgnmntComponents" style="display: none;" />
+				<input t:type="Hidden" t:value="sequenceMinValToContainer" t:encoder="StringValueEncoder" id="sequenceMinValToContainer" style="display: none;" />
+				<input t:type="Hidden" t:value="sequenceRealValToContainer" t:encoder="StringValueEncoder" id="sequenceRealValToContainer" style="display: none;" />
+				<input t:type="Hidden" t:value="sequenceValueComponent" t:encoder="StringValueEncoder" id="sequenceValueComponent" style="display: none;" />
+				<input t:type="Hidden" t:value="behaviorAffectCompId" t:encoder="StringValueEncoder" id="behaviorAffectCompId" style="display: none;" />
+				<t:delegate t:to="block:buttons" />
+				<t:if test="showContinueButton()">
+					<t:if test="isOffline()">
+						<button type="button" class="btn btn-primary btn-openFormBuider" style="margin: 2px;">${message:app.button.continue}</button>
+						<p:else>
+							<t:submit value="${message:app.button.continue}" event="continue" t:id="continue" id="continue" style="margin:2px;" />
+						</p:else>
+					</t:if>
+				</t:if>
+				<t:block t:id="buttons">
+					<div class="standAloneButtons">
+						<div class="row">
+							<div class="col-xs-12">
+								<t:if test="isFillingState()">
+									<t:if test="isOffline()">
+										<button type="button" class="btn btn-primary btn-openFormBuider" style="margin: 2px;">${message:app.button.back}</button>
+										<p:else>
+											<t:if test="!isAnonymous">
+												<t:submit value="${message:app.button.back}" event="back" t:id="back" id="back" style="margin:2px;" onclick="hideStandAloneButtons();"
+                        t:mixins="MintDuringEdit" />
+											</t:if>
+										</p:else>
+									</t:if>
+									<t:if test="!isClassCertificateMode()">
+										<t:if test="!isContainsErrors()">
+											<t:submit value="${getDisplayLabelToSignoffButton()}" event="signOff" t:id="signoff" id="signoff" style="margin:2px;"
+                      onclick="return submitFormAction();" t:mixins="MintDuringEdit" />
+											<t:if t:test="isEntityForm()" negate="true">
+												<t:submit value="${message:app.save}" event="save" t:id="save" id="save" style="margin: 2px;" onclick="return saveFormAction();"
+                        t:mixins="MintDuringEdit" />
+												<t:submit value="${message:app.button.reset}" event="reset" t:id="reset" id="reset" style="margin:2px;" onclick="hideStandAloneButtons();"
+                        t:mixins="MintDuringEdit" />
+												<t:remove>
+													<!-- DEV-6138 Add possibility to download any form into offline cache -->
+												</t:remove>
+												<t:if test="!isAnonymous">
+													<t:eventlink t:event="openStoreOfflineModal" t:async="true" t:id="storeOffline" id="storeOffline" style="margin:2px;"
+                          class="btn btn-primary" t:mixins="MintDuringEdit">${message:app.button.store.offline}</t:eventlink>
+												</t:if>
+												<t:if test="isDynamicForm()">
+													<button type="button" id="btn_show_select_record_items" class="btn btn-primary btn_show_select_record_items_class" onclick="return showSelectRecordItemModal();">${message:components.signoff.MintSignoffForm.selectRecordItems.title}</button>
+												</t:if>
+												<t:if test="isAnonymous">
+													<t:eventlink t:async="true" t:event="returnToLogin" style="margin:2px;" class="btn btn-primary">${message:app.button.returnToLogin}</t:eventlink>
+												</t:if>
+											</t:if>
+										</t:if>
+									</t:if>
+									<p:else>
+										<t:if test="isConfirmatingState()">
+											<t:submit value="${message:app.button.modify}" event="modify" t:id="modify" id="modify" style="margin:2px;" onclick="modifyFormAction()"
+                      t:mixins="MintDuringEdit" />
+											<t:submit value="${message:app.button.confirm}" event="confirm" t:id="confirm" id="confirm" style="margin:2px;"
+                      onclick="confirmFormAction()" t:mixins="MintDuringEdit" />
+											<t:if test="isAnonymous">
+												<t:eventlink t:async="true" t:event="returnToLogin" style="margin:2px;" class="btn btn-primary">${message:app.button.returnToLogin}</t:eventlink>
+											</t:if>
+										</t:if>
+									</p:else>
+								</t:if>
+							</div>
+						</div>
+					</div>
+				</t:block>
+				<!-- progress information -->
+				<div id="ProgressMsg" class="text-centered progress-msg" style="display: none;">
+					<b><span><t:outputraw value="${message:pages.signoff.MySignoff.progress-msg-generic}" /></span></b>
+				</div>
+				<div id="ProgressMsgSave" class="text-centered progress-msg" style="display: none;">
+					<b><span><t:outputraw value="${message:pages.signoff.MySignoff.progress-msg-form-saving}" /></span></b>
+				</div>
+				<div id="ProgressMsgSubmit" class="text-centered progress-msg" style="display: none;">
+					<b><span><t:outputraw value="${message:pages.signoff.MySignoff.progress-msg-form-submitting}" /></span></b>
+				</div>
+			</t:form>
+		</div>
+		<t:if test="hideStandAloneButtons()">
+			<script type="text/javascript">
+          hideStandAloneButtons();
+			</script>
+		</t:if>
+		<t:if test="requireClearLocalStorage()">
+			<script type="text/javascript">
+          clearLocalStorageData("${storageKeys}");
+			</script>
+		</t:if>
+		<t:if test="requireSynchronizeData()">
+			<script type="text/javascript">
+          synchronizeFormData("${storageKeys}", "${cleanDataFromCache}");
+			</script>
+		</t:if>
+		<t:if test="isDynamicForm()">
+			<script type="text/javascript">
+          hideSelectRIButton();
+			</script>
+		</t:if>
+		<div class="modal fade" id="select_recorditems_modal" tabindex="-1" role="dialog" aria-labelledby="modallabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="modallabel">${message:components.signoff.MintSignoffForm.selectRecordItems.title}</h4>
+					</div>
+					<div class="modal-body" id="select_recorditems_modal_body">
+						<p>${message:components.signoff.MintSignoffForm.selectRecordItems.description}</p>
+						<div style="max-height: 70%; overflow: auto;">
+							<table class="table table-striped table-bordered mint-table-striped no-footer" id="select_recorditems_modal_table">
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">${message:app.cancel.label}</button>
+						<button type="button" class="btn btn-primary" onclick="closeShowSelectRecordItemModal();">${message:app.apply.label}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<t:remove>
+			<!-- DEV-6138 Add possibility to download any form into offline cache -->
+		</t:remove>
+		<t:zone t:id="storeOfflineModalZone" id="showStoreOfflineModalZone">
+			<t:if test="showStoreOfflineModal">
+				<t:SimpleModal t:id="storeOfflineModal" id="storeOfflineModal" t:title="message:components.signoff.MintSignoffForm.form.store.offline.modal.title">
+					<t:form t:id="storeOfflineForm" t:async="true" class="form-inline">
+						<div>${message:components.signoff.MintSignoffForm.form.store.offline.modal.confirmation}</div>
+						<br></br>
+						<div class="text-center">
+							<t:eventlink event="cancelStoreOffline" class="btn btn-default" async="true" data-dismiss="modal">${message:app.cancel.label}</t:eventlink>
+							<t:eventlink event="confirmStoreOffline" class="btn btn-primary" async="true" data-dismiss="modal" onClick="confirmStoreOfflineModal()">${message:app.button.confirm}</t:eventlink>
+						</div>
+					</t:form>
+				</t:SimpleModal>
+			</t:if>
+		</t:zone>
+	</body>
+	<script type="text/javascript" src="formBuilder/offline/form-offline-render.js"></script>
+</html>

@@ -1,5 +1,5 @@
-# Net Framework Projects 
+# Xamarin Projects
 
-<img src="https://pngimage.net/wp-content/uploads/2018/06/net-png-8.png" alt="React Styleguidist" width="150" />
+<img src="https://cdn-images-1.medium.com/max/1600/1*QoiVurCZ3HTOkmYi9n5Gaw.png" alt="Xamarin Projects" width="150" />
 
-This repository contains some .net projects made with learning interest.
+This repository contains some Xamarin projects developed as learning.
